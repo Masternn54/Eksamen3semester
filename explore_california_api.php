@@ -18,7 +18,9 @@ $conn = new PDO("mysql:host=$servername;dbname=$dbname" , $username,$password);
 $conn->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION );
 
 // mit join som også skal stå i vores sql left join er en advanceret opgave 1
-$select = "SELECT tourName, description,price, keywords FROM tours
+// jeg fjerne description i min api fordi den giver white screen hvis den er med i min select statement
+// hvilket gjorde at man ikke kunne se min api eller min chrome exstention
+$select = "SELECT tourName,price, keywords FROM tours
 
 LEFT JOIN packages ON tours.packageId = tours.packageId";
 
